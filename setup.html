@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Potlatch Club setup</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:">
+<style>body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:#faf5ee;color:#2b2b2b;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.c{background:#fff;border:1px solid #e4dccf;border-radius:16px;padding:36px;max-width:460px;width:90%;box-shadow:0 6px 24px rgba(0,0,0,.06)}
+h1{margin:0 0 6px;font-size:24px}p{color:#666;line-height:1.5}input{width:100%;box-sizing:border-box;padding:12px;font-size:16px;border:1px solid #cdbfae;border-radius:8px;margin:10px 0}
+button{width:100%;padding:13px;font-size:16px;font-weight:700;color:#fff;background:#3d7f87;border:0;border-radius:8px;cursor:pointer}#m{color:#b3261e;min-height:20px;font-size:14px}</style></head>
+<body><div class="c"><h1>The Potlatch Club</h1><p>First time setup. Type the web address of your Potlatch app (the same one you open in a browser).</p>
+<input id="u" placeholder="your-app.vercel.app" autofocus><div id="m"></div><button id="b">Open the app</button></div>
+<script>
+var u=document.getElementById("u"),m=document.getElementById("m");
+function go(){window.potlatchDesktop.saveUrl(u.value).then(function(r){if(!r.ok)m.textContent=r.message})}
+document.getElementById("b").onclick=go;u.onkeydown=function(e){if(e.key==="Enter")go()};
+</script></body></html>
